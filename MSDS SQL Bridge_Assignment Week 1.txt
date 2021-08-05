@@ -1,0 +1,50 @@
+
+Answers to SQL Question.
+
+
+1.	SELECT DISTINCT flight, origin, dest, distance AS 'furthest distance' 
+	FROM flights 
+	WHERE distance IN (select max(distance) from flights);
+
+2. 	different Group of Engines = 4, Max seat = 450
+	
+	SQL Statement
+	SELECT engines, engine, MAX(seats) 
+	FROM planes 
+	GROUP BY engines;
+
+3.	Total number of flight = 336776
+	
+	SQL Statement
+	SELECT COUNT(*) 
+	FROM flights;
+
+4.	SELECT carrier, COUNT(carrier) 
+	FROM flights 
+	GROUP BY carrier;
+
+5.	SELECT carrier, COUNT(*) 
+	AS FlightCount 
+	FROM flights 
+	GROUP BY carrier 
+	ORDER BY FlightCount DESC;	
+
+6.	SELECT carrier, COUNT(*) AS FlightCount 
+	FROM flights 
+	GROUP BY carrier 
+	ORDER BY FlightCount DESC 
+	LIMIT 5;
+
+7.	SELECT carrier, COUNT(*) AS FlightCount 
+	FROM flights 
+	WHERE distance >=1000 
+	GROUP BY carrier 
+	ORDER BY FlightCount DESC 
+	LIMIT 5; 
+
+8.	SELECT carrier, COUNT(*) as FlightCount 
+	FROM flights 
+	WHERE MONTH = 10 
+	GROUP BY carrier 
+	ORDER BY FlightCount DESC 
+	LIMIT 5;
